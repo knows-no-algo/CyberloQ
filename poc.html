@@ -6,14 +6,6 @@
 <p id="OS"></p>
 <p id="memory"></p>
 <p id="core"></p>
-<!-- <p id="agent"></p>
-<script>
-    var m=document.getElementById("agent");
-    var ag=navigator.userAgent;
-    var mystr = ag.substring(ag.indexOf("(") + 1, ag.indexOf(")"));
-    const myarr = mystr.split(";");
-    m.innerHTML="Details: "+ myarr[0]+" "+ myarr[1]+" "+ myarr[2] ;
-</script> -->
 <script>
     var z=document.getElementById("memory");
     var mem=navigator.deviceMemory;
@@ -32,7 +24,7 @@
             // Success function
             showPosition, 
             // Error function
-            null, 
+            showError, 
             // Options. See MDN for details.
             {
                enableHighAccuracy: true,
@@ -45,8 +37,11 @@
 
     function showPosition(position) {
     x.innerHTML="Geolocation:<br>"+"Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;  
-}
+    "<br>Longitude: " + position.coords.longitude;  }
+
+    function showError() {
+    x.innerHTML="GPS Disabled";
+    }
 </script>
 
 <script>
@@ -117,6 +112,5 @@
     y.innerHTML= Name;
     
 </script>
-
 </body>
 </html>
